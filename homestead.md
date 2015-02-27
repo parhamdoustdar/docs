@@ -55,18 +55,6 @@ If this command fails, you may have an old version of Vagrant that requires the 
 
 ### Installing Homestead
 
-#### Manually Via Git (No Local PHP)
-
-Alternatively, if you do not want to install PHP on your local machine, you may install Homestead manually by simply cloning the repository. Consider cloning the repository into a `Homestead` folder within your "home" directory, as the Homestead box will serve as the host to all of your Laravel (and PHP) projects:
-
-	git clone https://github.com/laravel/homestead.git Homestead
-
-Once you have installed the Homestead CLI tool, run the `bash init.sh` command to create the `Homestead.yaml` configuration file:
-
-	bash init.sh
-
-The `Homestead.yaml` file will be placed in your `~/.homestead` directory.
-
 #### With Composer + PHP Tool
 
 Once the box has been added to your Vagrant installation, you are ready to install the Homestead CLI tool using the Composer `global` command:
@@ -83,15 +71,29 @@ The `Homestead.yaml` file will be placed in the `~/.homestead` directory. If you
 
 	homestead edit
 
+#### Manually Via Git (No Local PHP)
+
+Alternatively, if you do not want to install PHP on your local machine, you may install Homestead manually by simply cloning the repository. Consider cloning the repository into a `Homestead` folder within your "home" directory, as the Homestead box will serve as the host to all of your Laravel (and PHP) projects:
+
+> **Note**: It is recommended that Windows users install [Git for Windows](https://msysgit.github.io/) and choose `Run Git and included Unix tools from the Windows Command Prompt` during setup to be able to run the commands below from the Windows command prompt.
+
+	git clone https://github.com/laravel/homestead.git Homestead
+
+Once you have installed the Homestead CLI tool, run the `bash init.sh` command to create the `Homestead.yaml` configuration file:
+
+	bash init.sh
+
+The `Homestead.yaml` file will be placed in your `~/.homestead` directory. On Windows, this would generally be something like `C:\Users\{username}\.homestead`.
+
 ### Set Your SSH Key
 
-Next, you should edit the `Homestead.yaml` file. In this file, you can configure the path to your public SSH key, as well as the folders you wish to be shared between your main machine and the Homestead virtual machine.
+Optionally, you should edit the `Homestead.yaml` file. In this file, you can configure the path to your public SSH key, as well as the folders you wish to be shared between your main machine and the Homestead virtual machine.
 
 Don't have an SSH key? On Mac and Linux, you can generally create an SSH key pair using the following command:
 
 	ssh-keygen -t rsa -C "you@homestead"
 
-On Windows, you may install [Git](http://git-scm.com/) and use the `Git Bash` shell included with Git to issue the command above. Alternatively, you may use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+On Windows, you may install [Git for Windows](https://msysgit.github.io/) and depending on your choices during setup, use either the Windows command prompt or the `Git Bash` shell included with Git to issue the command above. Alternatively, you may use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) and [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Once you have created a SSH key, specify the key's path in the `authorize` property of your `Homestead.yaml` file.
 
